@@ -52,5 +52,3 @@ Just open `index.html` in a modern browser, or serve with:
 ```bash
 npx serve .
 ```
-
-Built with ❤️ and Three.js
