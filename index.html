@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System Explorer</title>
+    <meta name="description" content="An interactive 3D solar system explorer with stunning animations and galaxy background">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <h1 class="loader-title">SOLAR SYSTEM</h1>
+            <p class="loader-subtitle">Initializing the cosmos...</p>
+            <div class="loader-bar">
+                <div class="loader-bar-fill" id="loader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="solar-canvas"></canvas>
+
+    <!-- Navigation Sidebar -->
+    <nav id="planet-nav">
+        <div class="nav-header">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <span>EXPLORER</span>
+        </div>
+        <ul class="planet-list" id="planet-list">
+            <!-- Filled by JS -->
+        </ul>
+        <div class="nav-footer">
+            <button id="btn-overview" class="nav-btn" title="Overview">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <span>Overview</span>
+            </button>
+            <button id="btn-toggle-orbits" class="nav-btn active" title="Toggle Orbits">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+                <span>Orbits</span>
+            </button>
+            <button id="btn-toggle-speed" class="nav-btn" title="Speed Control">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="speed-label">1x</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Planet Info Panel -->
+    <div id="planet-info" class="hidden">
+        <button id="close-info" class="close-btn">&times;</button>
+        <div class="info-header">
+            <div class="info-planet-icon" id="info-icon"></div>
+            <div>
+                <h2 id="info-name"></h2>
+                <p id="info-type" class="info-type"></p>
+            </div>
+        </div>
+        <div class="info-stats" id="info-stats">
+            <!-- Filled by JS -->
+        </div>
+        <p id="info-description" class="info-desc"></p>
+    </div>
+
+    <!-- Controls Hint -->
+    <div id="controls-hint">
+        <span>🖱️ Drag to orbit</span>
+        <span>🔄 Scroll to zoom</span>
+        <span>🔢 1-8 to jump</span>
+        <span>ESC for overview</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
